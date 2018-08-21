@@ -308,7 +308,7 @@
   <attribute name="assignee" type="string">
     <annotation>
       <documentation>
-        User Task attribute to set the human performer of a user task.
+        User Task attribute to set the human performer of a aiaUser task.
         Also supports expressions that evaluate to a String.
       </documentation>
     </annotation>
@@ -335,9 +335,9 @@
   <attribute name="candidateUsers">
     <annotation>
       <documentation>
-        User Task attribute to set the potential owners of a user task.
-        The provided user(s) will be candidate for performing the user task.
-        In case of multiple user ids, a comma-separated list must be provided.
+        User Task attribute to set the potential owners of a aiaUser task.
+        The provided aiaUser(s) will be candidate for performing the aiaUser task.
+        In case of multiple aiaUser ids, a comma-separated list must be provided.
         Also supports expressions that evaluate to a String or Collection&lt;String&gt;.
       </documentation>
     </annotation>
@@ -346,8 +346,8 @@
   <attribute name="candidateGroups">
     <annotation>
       <documentation>
-        User Task attribute to set the potential owners of a user task.
-        The provided group(s) will be candidate for performing the user task.
+        User Task attribute to set the potential owners of a aiaUser task.
+        The provided group(s) will be candidate for performing the aiaUser task.
         In case of multiple group ids, a comma-separated list must be provided.
         Also supports expressions that evaluate to a String or Collection&lt;String&gt;.
       </documentation>
@@ -357,8 +357,8 @@
   <attribute name="priority">
     <annotation>
       <documentation>
-        User Task attribute to set the priority of a user task.
-        The provided priority can be used to sort user tasks in the task list.
+        User Task attribute to set the priority of a aiaUser task.
+        The provided priority can be used to sort aiaUser tasks in the task list.
         Also supports expressions that evaluate to a String.
       </documentation>
     </annotation>
@@ -368,8 +368,8 @@
     <annotation>
       <documentation>
         Process attribute to set the potential starts of a process.
-        Provided user(s) will be able to start the process.
-        In case of multiple user ids, a comma-separated list must be provided.
+        Provided aiaUser(s) will be able to start the process.
+        In case of multiple aiaUser ids, a comma-separated list must be provided.
         Also supports expressions that evaluate to a String or Collection&lt;String&gt;.
       </documentation>
     </annotation>

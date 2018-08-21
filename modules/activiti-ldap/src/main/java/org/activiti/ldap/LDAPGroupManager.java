@@ -1,9 +1,9 @@
 /* Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -37,189 +37,189 @@ import org.activiti.engine.impl.persistence.entity.GroupEntityManager;
 
 /**
  * Implementation of the {@link GroupEntityManager} interface specifically for LDAP.
- * 
+ * <p>
  * Note that only a few methods are actually implemented, as many of the operations (save, update, etc.) are done on the LDAP system directly.
- * 
+ *
  * @author Joram Barrez
  */
 public class LDAPGroupManager extends AbstractManager implements GroupEntityManager {
 
-  protected LDAPConfigurator ldapConfigurator;
-  protected LDAPGroupCache ldapGroupCache;
+    protected LDAPConfigurator ldapConfigurator;
+    protected LDAPGroupCache ldapGroupCache;
 
-  public LDAPGroupManager(ProcessEngineConfigurationImpl processEngineConfiguration, LDAPConfigurator ldapConfigurator) {
-    super(processEngineConfiguration);
-    this.ldapConfigurator = ldapConfigurator;
-  }
-
-  public LDAPGroupManager(ProcessEngineConfigurationImpl processEngineConfiguration, LDAPConfigurator ldapConfigurator, LDAPGroupCache ldapGroupCache) {
-    super(processEngineConfiguration);
-    this.ldapConfigurator = ldapConfigurator;
-    this.ldapGroupCache = ldapGroupCache;
-  }
-
-  @Override
-  public Group createNewGroup(String groupId) {
-    throw new ActivitiException("LDAP group manager doesn't support creating a new group");
-  }
-  
-  @Override
-  public GroupEntity create() {
-    throw new ActivitiException("LDAP group manager doesn't support creating a new group");
-  }
-
-  @Override
-  public GroupEntity update(GroupEntity entity) {
-    throw new ActivitiException("LDAP group manager doesn't support updating a new group");
-  }
-  
-  @Override
-  public GroupEntity update(GroupEntity entity, boolean fireUpdateEvent) {
-    throw new ActivitiException("LDAP group manager doesn't support updating a new group");
-  }
-
-  @Override
-  public boolean isNewGroup(Group group) {
-    throw new ActivitiException("LDAP group manager doesn't support inserting or updating a group");
-  }
-
-  @Override
-  public GroupQuery createNewGroupQuery() {
-    return new GroupQueryImpl(Context.getProcessEngineConfiguration().getCommandExecutor());
-  }
-
-  @Override
-  public List<Group> findGroupByQueryCriteria(GroupQueryImpl query, Page page) {
-    // Only support for groupMember() at the moment
-    if (query.getUserId() != null) {
-      return findGroupsByUser(query.getUserId());
-    } else {
-      throw new ActivitiIllegalArgumentException("This query is not supported by the LDAPGroupManager");
-    }
-  }
-
-  @Override
-  public long findGroupCountByQueryCriteria(GroupQueryImpl query) {
-    return findGroupByQueryCriteria(query, null).size(); // Is there a generic way to do a count(*) in ldap?
-  }
-
-  @Override
-  public List<Group> findGroupsByUser(final String userId) {
-
-    // First try the cache (if one is defined)
-    if (ldapGroupCache != null) {
-      List<Group> groups = ldapGroupCache.get(userId);
-      if (groups != null) {
-        return groups;
-      }
+    public LDAPGroupManager(ProcessEngineConfigurationImpl processEngineConfiguration, LDAPConfigurator ldapConfigurator) {
+        super(processEngineConfiguration);
+        this.ldapConfigurator = ldapConfigurator;
     }
 
-    // Do the search against Ldap
-    LDAPTemplate ldapTemplate = new LDAPTemplate(ldapConfigurator);
-    return ldapTemplate.execute(new LDAPCallBack<List<Group>>() {
+    public LDAPGroupManager(ProcessEngineConfigurationImpl processEngineConfiguration, LDAPConfigurator ldapConfigurator, LDAPGroupCache ldapGroupCache) {
+        super(processEngineConfiguration);
+        this.ldapConfigurator = ldapConfigurator;
+        this.ldapGroupCache = ldapGroupCache;
+    }
 
-      public List<Group> executeInContext(InitialDirContext initialDirContext) {
+    @Override
+    public Group createNewGroup(String groupId) {
+        throw new ActivitiException("LDAP group manager doesn't support creating a new group");
+    }
 
-        String searchExpression = ldapConfigurator.getLdapQueryBuilder().buildQueryGroupsForUser(ldapConfigurator, userId);
+    @Override
+    public GroupEntity create() {
+        throw new ActivitiException("LDAP group manager doesn't support creating a new group");
+    }
 
-        List<Group> groups = new ArrayList<Group>();
-        try {
-          String baseDn = ldapConfigurator.getGroupBaseDn() != null ? ldapConfigurator.getGroupBaseDn() : ldapConfigurator.getBaseDn();
-          NamingEnumeration<?> namingEnum = initialDirContext.search(baseDn, searchExpression, createSearchControls());
-          while (namingEnum.hasMore()) { // Should be only one
-            SearchResult result = (SearchResult) namingEnum.next();
+    @Override
+    public GroupEntity update(GroupEntity entity) {
+        throw new ActivitiException("LDAP group manager doesn't support updating a new group");
+    }
 
-            GroupEntity group = new GroupEntityImpl();
-            if (ldapConfigurator.getGroupIdAttribute() != null) {
-              group.setId(result.getAttributes().get(ldapConfigurator.getGroupIdAttribute()).get().toString());
-            }
-            if (ldapConfigurator.getGroupNameAttribute() != null) {
-              group.setName(result.getAttributes().get(ldapConfigurator.getGroupNameAttribute()).get().toString());
-            }
-            if (ldapConfigurator.getGroupTypeAttribute() != null) {
-              group.setType(result.getAttributes().get(ldapConfigurator.getGroupTypeAttribute()).get().toString());
-            }
-            groups.add(group);
-          }
+    @Override
+    public GroupEntity update(GroupEntity entity, boolean fireUpdateEvent) {
+        throw new ActivitiException("LDAP group manager doesn't support updating a new group");
+    }
 
-          namingEnum.close();
+    @Override
+    public boolean isNewGroup(Group group) {
+        throw new ActivitiException("LDAP group manager doesn't support inserting or updating a group");
+    }
 
-          // Cache results for later
-          if (ldapGroupCache != null) {
-            ldapGroupCache.add(userId, groups);
-          }
+    @Override
+    public GroupQuery createNewGroupQuery() {
+        return new GroupQueryImpl(Context.getProcessEngineConfiguration().getCommandExecutor());
+    }
 
-          return groups;
-
-        } catch (NamingException e) {
-          throw new ActivitiException("Could not find groups for user " + userId, e);
+    @Override
+    public List<Group> findGroupByQueryCriteria(GroupQueryImpl query, Page page) {
+        // Only support for groupMember() at the moment
+        if (query.getUserId() != null) {
+            return findGroupsByUser(query.getUserId());
+        } else {
+            throw new ActivitiIllegalArgumentException("This query is not supported by the LDAPGroupManager");
         }
-      }
+    }
 
-    });
-  }
+    @Override
+    public long findGroupCountByQueryCriteria(GroupQueryImpl query) {
+        return findGroupByQueryCriteria(query, null).size(); // Is there a generic way to do a count(*) in ldap?
+    }
 
-  @Override
-  public List<Group> findGroupsByNativeQuery(Map<String, Object> parameterMap, int firstResult, int maxResults) {
-    throw new ActivitiException("LDAP group manager doesn't support querying");
-  }
+    @Override
+    public List<Group> findGroupsByUser(final String userId) {
 
-  @Override
-  public long findGroupCountByNativeQuery(Map<String, Object> parameterMap) {
-    throw new ActivitiException("LDAP group manager doesn't support querying");
-  }
+        // First try the cache (if one is defined)
+        if (ldapGroupCache != null) {
+            List<Group> groups = ldapGroupCache.get(userId);
+            if (groups != null) {
+                return groups;
+            }
+        }
 
-  protected SearchControls createSearchControls() {
-    SearchControls searchControls = new SearchControls();
-    searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
-    searchControls.setTimeLimit(ldapConfigurator.getSearchTimeLimit());
-    return searchControls;
-  }
+        // Do the search against Ldap
+        LDAPTemplate ldapTemplate = new LDAPTemplate(ldapConfigurator);
+        return ldapTemplate.execute(new LDAPCallBack<List<Group>>() {
 
-  @Override
-  public void insert(GroupEntity entity) {
-    throw new ActivitiException("Unsupported by LDAP group manager");
-  }
+            public List<Group> executeInContext(InitialDirContext initialDirContext) {
 
-  @Override
-  public void insert(GroupEntity entity, boolean fireCreateEvent) {
-    throw new ActivitiException("Unsupported by LDAP group manager");
-  }
+                String searchExpression = ldapConfigurator.getLdapQueryBuilder().buildQueryGroupsForUser(ldapConfigurator, userId);
 
-  @Override
-  public GroupEntity findById(String entityId) {
-    throw new ActivitiException("Unsupported by LDAP group manager");
-  }
+                List<Group> groups = new ArrayList<Group>();
+                try {
+                    String baseDn = ldapConfigurator.getGroupBaseDn() != null ? ldapConfigurator.getGroupBaseDn() : ldapConfigurator.getBaseDn();
+                    NamingEnumeration<?> namingEnum = initialDirContext.search(baseDn, searchExpression, createSearchControls());
+                    while (namingEnum.hasMore()) { // Should be only one
+                        SearchResult result = (SearchResult) namingEnum.next();
 
-  @Override
-  public void delete(String id) {
-    throw new ActivitiException("Unsupported by LDAP group manager");
-  }
+                        GroupEntity group = new GroupEntityImpl();
+                        if (ldapConfigurator.getGroupIdAttribute() != null) {
+                            group.setId(result.getAttributes().get(ldapConfigurator.getGroupIdAttribute()).get().toString());
+                        }
+                        if (ldapConfigurator.getGroupNameAttribute() != null) {
+                            group.setName(result.getAttributes().get(ldapConfigurator.getGroupNameAttribute()).get().toString());
+                        }
+                        if (ldapConfigurator.getGroupTypeAttribute() != null) {
+                            group.setType(result.getAttributes().get(ldapConfigurator.getGroupTypeAttribute()).get().toString());
+                        }
+                        groups.add(group);
+                    }
 
-  @Override
-  public void delete(GroupEntity entity, boolean fireDeleteEvent) {
-    throw new ActivitiException("Unsupported by LDAP group manager");
-  }
+                    namingEnum.close();
 
-  @Override
-  public void delete(GroupEntity entity) {
-    throw new ActivitiException("Unsupported by LDAP group manager");
-  }
+                    // Cache results for later
+                    if (ldapGroupCache != null) {
+                        ldapGroupCache.add(userId, groups);
+                    }
 
-  public LDAPConfigurator getLdapConfigurator() {
-    return ldapConfigurator;
-  }
+                    return groups;
 
-  public void setLdapConfigurator(LDAPConfigurator ldapConfigurator) {
-    this.ldapConfigurator = ldapConfigurator;
-  }
+                } catch (NamingException e) {
+                    throw new ActivitiException("Could not find groups for user " + userId, e);
+                }
+            }
 
-  public LDAPGroupCache getLdapGroupCache() {
-    return ldapGroupCache;
-  }
+        });
+    }
 
-  public void setLdapGroupCache(LDAPGroupCache ldapGroupCache) {
-    this.ldapGroupCache = ldapGroupCache;
-  }
+    @Override
+    public List<Group> findGroupsByNativeQuery(Map<String, Object> parameterMap, int firstResult, int maxResults) {
+        throw new ActivitiException("LDAP group manager doesn't support querying");
+    }
+
+    @Override
+    public long findGroupCountByNativeQuery(Map<String, Object> parameterMap) {
+        throw new ActivitiException("LDAP group manager doesn't support querying");
+    }
+
+    protected SearchControls createSearchControls() {
+        SearchControls searchControls = new SearchControls();
+        searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
+        searchControls.setTimeLimit(ldapConfigurator.getSearchTimeLimit());
+        return searchControls;
+    }
+
+    @Override
+    public void insert(GroupEntity entity) {
+        throw new ActivitiException("Unsupported by LDAP group manager");
+    }
+
+    @Override
+    public void insert(GroupEntity entity, boolean fireCreateEvent) {
+        throw new ActivitiException("Unsupported by LDAP group manager");
+    }
+
+    @Override
+    public GroupEntity findById(String entityId) {
+        throw new ActivitiException("Unsupported by LDAP group manager");
+    }
+
+    @Override
+    public void delete(String id) {
+        throw new ActivitiException("Unsupported by LDAP group manager");
+    }
+
+    @Override
+    public void delete(GroupEntity entity, boolean fireDeleteEvent) {
+        throw new ActivitiException("Unsupported by LDAP group manager");
+    }
+
+    @Override
+    public void delete(GroupEntity entity) {
+        throw new ActivitiException("Unsupported by LDAP group manager");
+    }
+
+    public LDAPConfigurator getLdapConfigurator() {
+        return ldapConfigurator;
+    }
+
+    public void setLdapConfigurator(LDAPConfigurator ldapConfigurator) {
+        this.ldapConfigurator = ldapConfigurator;
+    }
+
+    public LDAPGroupCache getLdapGroupCache() {
+        return ldapGroupCache;
+    }
+
+    public void setLdapGroupCache(LDAPGroupCache ldapGroupCache) {
+        this.ldapGroupCache = ldapGroupCache;
+    }
 
 }

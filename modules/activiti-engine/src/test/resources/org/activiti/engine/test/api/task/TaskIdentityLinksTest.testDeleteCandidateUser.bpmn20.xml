@@ -14,7 +14,7 @@
       </extensionElements>
       <potentialOwner>
         <resourceAssignmentExpression>
-          <formalExpression>user(user),user(admin)</formalExpression>
+          <formalExpression>aiaUser(aiaUser),aiaUser(admin)</formalExpression>
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>

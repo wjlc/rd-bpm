@@ -54,9 +54,9 @@
 				<div class="property-wrapper">
 					<table>
 						<tr class="property">
-							<td class="property-name"><span class="glyphicon glyphicon-user"></span> {{'TASK.ASSIGNEE' | translate}}</td>
+							<td class="property-name"><span class="glyphicon glyphicon-aiaUser"></span> {{'TASK.ASSIGNEE' | translate}}</td>
 							<td>{{task.assignee | empty}}</td>
-							<td class="property-name"><span class="glyphicon glyphicon-user"></span> {{'TASK.OWNER' | translate}}</td>
+							<td class="property-name"><span class="glyphicon glyphicon-aiaUser"></span> {{'TASK.OWNER' | translate}}</td>
 							<td>{{task.assignee | empty}}</td>
 						</tr>
 						<tr class="property">
@@ -73,7 +73,7 @@
 						</tr>
 					</table>
 				</div>
-				
+
 				<!-- Only visible for tasks associated to an execution -->
 				<div class="seperator" ng-if="taskPartOfProcess"></div>
 				<div class="property-wrapper">
@@ -105,7 +105,7 @@
 					  </li>
 					  <li ng-if="!taskCompleted">
 					    <button type="button" class="btn btn-sm btn-default" ng-click="assignTask()">
-							<i class="glyphicon glyphicon-user"></i>{{'TASK.ACTION.ASSIGN-CLAIM' | translate}}
+							<i class="glyphicon glyphicon-aiaUser"></i>{{'TASK.ACTION.ASSIGN-CLAIM' | translate}}
 					    </button>
 					  </li>
 					  <li ng-if="!taskCompleted && task.delegationState != 'pending' && task.delegationStateLoaded">
@@ -148,7 +148,7 @@
 		       			</div>
 		       		</div>
 		        	<div class="title"></div>
-		        	
+
 		        	<div class="grid-wrapper grid-wrapper-compact" ng-if="subTasks && tabData.activeTab == tabData.tabs[0].id">
 						<div class="grid-message" ng-if="subTasks.size > 0">
 	                        <span>{{'TASK.SUBTASKS-MESSAGE' | translate:subTasks}}</span>
@@ -158,7 +158,7 @@
 	                    </div>
 						<div ng-grid="subTaskGridDefinitions" class="gridStyle" ng-if="subTasks" ng-show="subTasks.size > 0"></div>
 					</div>
-					
+
 					<div class="grid-wrapper grid-wrapper-compact" ng-if="variables && tabData.activeTab == tabData.tabs[1].id">
 						<div class="grid-message" ng-if="variables.size > 0">
 	                        <span>{{'TASK.VARIABLES-MESSAGE' | translate:variables}}</span>
@@ -168,7 +168,7 @@
 	                    </div>
 						<div ng-grid="variableGridDefinitions" class="gridStyle" ng-if="variables" ng-show="variables.size > 0"></div>
 					</div>
-					
+
 					<div class="grid-wrapper grid-wrapper-compact" ng-if="identityLinks && tabData.activeTab == tabData.tabs[2].id">
 						<div class="grid-message" ng-if="identityLinks.size > 0">
 						<span>{{'TASK.IDENTITY-LINKS-MESSAGE' | translate:identityLinks}}</span>

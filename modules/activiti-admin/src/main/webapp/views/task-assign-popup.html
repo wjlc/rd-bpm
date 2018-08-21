@@ -3,7 +3,7 @@
 		<div class="pull-right">
             <a class="action" ng-click="cancel()">&times; {{'GENERAL.ACTION.CANCEL-AND-CLOSE' | translate}}</a>
         </div>
-		<h2>{{'TASK.POPUP.ASSIGN.TITLE' | translate}} '{{task.name &amp;&amp; task.name || task.id}}'</h2>	
+		<h2>{{'TASK.POPUP.ASSIGN.TITLE' | translate}} '{{task.name &amp;&amp; task.name || task.id}}'</h2>
 	</div>
 </div>
 <div class="modal-body no-overflow">
@@ -12,8 +12,8 @@
 		{{'TASK.POPUP.ASSIGN.NEW-ASSIGNEE-HELP' | translate}}
 	</p>
 	 <div class="input-group input-group-sm type-ahead-scrollable">
-	 	 <label for="user" translate="TASK.POPUP.ASSIGN.NEW-ASSIGNEE"></label>
-	 	 <input id="user" type="text" users-typeahead user-model="status.user" user-display-model="newAssignee" user-status="active" class="form-control" auto-focus>
+	 	 <label for="aiaUser" translate="TASK.POPUP.ASSIGN.NEW-ASSIGNEE"></label>
+	 	 <input id="aiaUser" type="text" users-typeahead aiaUser-model="status.aiaUser" aiaUser-display-model="newAssignee" aiaUser-status="active" class="form-control" auto-focus>
      </div>
 </div>
 

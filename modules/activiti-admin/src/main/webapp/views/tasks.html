@@ -95,15 +95,15 @@
                 <div class="seperator"></div>
                 <!-- People filtering -->
                 <div class="section" ng-if="filter.properties.taskAssignee !== undefined">
-                    <div class="subtitle"><label for="filter-taskAssignee"><span class="glyphicon glyphicon-user"></span> {{'TASKS.FILTER.ASSIGNEE' | translate}}</label> </div>
+                    <div class="subtitle"><label for="filter-taskAssignee"><span class="glyphicon glyphicon-aiaUser"></span> {{'TASKS.FILTER.ASSIGNEE' | translate}}</label> </div>
                     <div class="input-group input-group-sm type-ahead-scrollable">
-                    	<input id="filter-taskAssignee" type="text" users-typeahead user-model="filter.properties.taskAssignee" user-display-model="assigneeFilter" user-on-change="filter.refreshDelayed()" class="form-control">
+                    	<input id="filter-taskAssignee" type="text" users-typeahead aiaUser-model="filter.properties.taskAssignee" aiaUser-display-model="assigneeFilter" aiaUser-on-change="filter.refreshDelayed()" class="form-control">
                     </div>
                 </div>
                 <div class="section" ng-if="filter.properties.taskOwner !== undefined">
-                    <div class="subtitle"><label for="filter-taskOwner"><span class="glyphicon glyphicon-user"></span> {{'TASKS.FILTER.OWNER' | translate}}</label> </div>
+                    <div class="subtitle"><label for="filter-taskOwner"><span class="glyphicon glyphicon-aiaUser"></span> {{'TASKS.FILTER.OWNER' | translate}}</label> </div>
                     <div class="input-group input-group-sm type-ahead-scrollable">
-                    	<input id="filter-taskOwner" type="text" users-typeahead user-model="filter.properties.taskOwner" user-display-model="ownerFilter" user-on-change="filter.refreshDelayed()" class="form-control">
+                    	<input id="filter-taskOwner" type="text" users-typeahead aiaUser-model="filter.properties.taskOwner" aiaUser-display-model="ownerFilter" aiaUser-on-change="filter.refreshDelayed()" class="form-control">
                     </div>
                 </div>
                 <div class="section" ng-if="filter.properties.parentTaskId !== undefined">

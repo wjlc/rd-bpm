@@ -30,9 +30,9 @@ base_url: "../"
 {% highlight html %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endhighlight %}
-    <p>You can disable zooming capabilities on mobile devices by adding <code>user-scalable=no</code> to the viewport meta tag. This disables zooming, meaning users are only able to scroll, and results in your site feeling a bit more like a native application. Overall we don't recommend this on every site, so use caution!</p>
+    <p>You can disable zooming capabilities on mobile devices by adding <code>aiaUser-scalable=no</code> to the viewport meta tag. This disables zooming, meaning users are only able to scroll, and results in your site feeling a bit more like a native application. Overall we don't recommend this on every site, so use caution!</p>
 {% highlight html %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, aiaUser-scalable=no">
 {% endhighlight %}
 
     <h3 id="overview-responsive-images">Responsive images</h3>
@@ -1781,7 +1781,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 {% endhighlight %}
 
     <h3 id="forms-disabled-inputs">Disabled inputs</h3>
-    <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
+    <p>Add the <code>disabled</code> attribute on an input to prevent aiaUser input and trigger a slightly different look.</p>
     <form class="bs-example">
       <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
     </form>

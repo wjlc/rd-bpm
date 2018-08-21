@@ -5,7 +5,7 @@
 		<echo message="creating database schema"/>
 		<echo message="  basedir: ${basedir}"/>
 		<echo message="  database: ${database}"/>
-		<property file="${user.home}/.activiti/jdbc/${database}.properties"/>
+		<property file="${aiaUser.home}/.activiti/jdbc/${database}.properties"/>
 		<echo message="  jdbc.driver: ${jdbc.driver}"/>
 		<echo message="  jdbc.url: ${jdbc.url}"/>
 		<echo message="  jdbc.username: ${jdbc.username}"/>
@@ -25,7 +25,7 @@
 		<echo message="dropping database schema"/>
 		<echo message="  basedir: ${basedir}"/>
 		<echo message="  database: ${database}"/>
-		<property file="${user.home}/.activiti/jdbc/${database}.properties"/>
+		<property file="${aiaUser.home}/.activiti/jdbc/${database}.properties"/>
 		<echo message="  jdbc.driver: ${jdbc.driver}"/>
 		<echo message="  jdbc.url: ${jdbc.url}"/>
 		<echo message="  jdbc.username: ${jdbc.username}"/>
@@ -46,7 +46,7 @@
 		<echo message="  basedir: ${basedir}"/>
 		<echo message="  database: ${database}"/>
 		
-		<property file="${user.home}/.activiti/jdbc/${database}.properties"/>
+		<property file="${aiaUser.home}/.activiti/jdbc/${database}.properties"/>
 
 		<echo message="  jdbc.driver: ${jdbc.driver}"/>
 		<echo message="  jdbc.url: ${jdbc.url}"/>

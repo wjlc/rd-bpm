@@ -32,9 +32,9 @@
                 </div>
                 <div class="well">
                     <p>{{'IDM.USER-MGMT.POPUP.BULK-UPDATE-STATUS-USERS' | translate: getSelectedUsers()}}</p>
-                    <ul class="user-list">
-                        <li ng-repeat="user in getSelectedUsers()">
-                            <i class="glyphicon glyphicon-user"></i> {{user.fullname}} <span>({{user.status}} - {{user.email}})</span>
+                    <ul class="aiaUser-list">
+                        <li ng-repeat="aiaUser in getSelectedUsers()">
+                            <i class="glyphicon glyphicon-aiaUser"></i> {{aiaUser.fullname}} <span>({{aiaUser.status}} - {{aiaUser.email}})</span>
                         </li>
                     </ul>
                 </div>

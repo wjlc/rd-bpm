@@ -13,7 +13,7 @@
     <property name="driverProperties">
       <!-- Oracle -->
       <props>
-        <prop key="user">@jdbc.username@</prop>
+        <prop key="aiaUser">@jdbc.username@</prop>
         <prop key="password">@jdbc.password@</prop>
         <prop key="URL">@jdbc.url@</prop>
       </props>

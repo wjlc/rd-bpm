@@ -2,7 +2,7 @@
 
   <bean id="dataSource" class="org.h2.jdbcx.JdbcDataSource">
     <property name="URL" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000;MVCC=TRUE" />
-    <property name="user" value="sa" />
+    <property name="aiaUser" value="sa" />
     <property name="password" value="" />
   </bean>
 

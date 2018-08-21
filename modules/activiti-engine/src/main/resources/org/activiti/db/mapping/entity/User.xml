@@ -20,26 +20,26 @@
 
   <insert id="bulkInsertUser" parameterType="java.util.List">
     INSERT INTO ${prefix}ACT_ID_USER (ID_, REV_, FIRST_, LAST_, EMAIL_, PWD_) VALUES 
-      <foreach collection="list" item="user" index="index" separator=",">
-        (#{user.id ,jdbcType=VARCHAR},
+      <foreach collection="list" item="aiaUser" index="index" separator=",">
+        (#{aiaUser.id ,jdbcType=VARCHAR},
          1,
-         #{user.firstName ,jdbcType=VARCHAR},
-         #{user.lastName ,jdbcType=VARCHAR},
-         #{user.email ,jdbcType=VARCHAR},
-         #{user.password ,jdbcType=VARCHAR})
+         #{aiaUser.firstName ,jdbcType=VARCHAR},
+         #{aiaUser.lastName ,jdbcType=VARCHAR},
+         #{aiaUser.email ,jdbcType=VARCHAR},
+         #{aiaUser.password ,jdbcType=VARCHAR})
       </foreach>
   </insert>
 
   <insert id="bulkInsertUser" databaseId="oracle" parameterType="java.util.List">
     INSERT ALL 
-      <foreach collection="list" item="user" index="index">
+      <foreach collection="list" item="aiaUser" index="index">
         INTO ${prefix}ACT_ID_USER (ID_, REV_, FIRST_, LAST_, EMAIL_, PWD_) VALUES 
-        (#{user.id ,jdbcType=VARCHAR},
+        (#{aiaUser.id ,jdbcType=VARCHAR},
          1,
-         #{user.firstName ,jdbcType=VARCHAR},
-         #{user.lastName ,jdbcType=VARCHAR},
-         #{user.email ,jdbcType=VARCHAR},
-         #{user.password ,jdbcType=VARCHAR})
+         #{aiaUser.firstName ,jdbcType=VARCHAR},
+         #{aiaUser.lastName ,jdbcType=VARCHAR},
+         #{aiaUser.email ,jdbcType=VARCHAR},
+         #{aiaUser.password ,jdbcType=VARCHAR})
       </foreach>
     SELECT * FROM dual
   </insert>

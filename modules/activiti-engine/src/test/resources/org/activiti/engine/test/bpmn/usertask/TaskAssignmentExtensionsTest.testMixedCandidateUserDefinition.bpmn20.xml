@@ -13,7 +13,7 @@
     <userTask id="theTask" name="my task" activiti:candidateUsers="kermit">
       <potentialOwner>
         <resourceAssignmentExpression>
-          <formalExpression>user(fozzie), user(gonzo)</formalExpression>
+          <formalExpression>aiaUser(fozzie), aiaUser(gonzo)</formalExpression>
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>

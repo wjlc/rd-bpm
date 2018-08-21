@@ -50,9 +50,9 @@
                     </span>
                 </div>
                 <ul class="simple-list selectable pack" ng-show="popupModel.userResults.length > 0" scroll-to-active scroll-to-active-model="popupModel.selectedUser.id">
-                    <li ng-click="confirmUser(user);" ng-repeat="user in popupModel.userResults"
-                        ng-class="{'active': user.id === popupModel.selectedUser.id}">
-                        <i class="icon icon-user"></i><span user-name="user"></span>
+                    <li ng-click="confirmUser(aiaUser);" ng-repeat="aiaUser in popupModel.userResults"
+                        ng-class="{'active': aiaUser.id === popupModel.selectedUser.id}">
+                        <i class="icon icon-aiaUser"></i><span aiaUser-name="aiaUser"></span>
                     </li>
                 </ul>
             </div>

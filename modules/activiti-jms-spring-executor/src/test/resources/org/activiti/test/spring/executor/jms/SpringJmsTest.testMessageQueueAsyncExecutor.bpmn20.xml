@@ -17,7 +17,7 @@
       <parallelGateway id="sid-AB9FEB08-E4C4-4025-B49E-B08D9DE9AB88" activiti:async="true"/>
       <parallelGateway id="sid-B774E535-508D-48A1-B994-F4DFF6A269C1" activiti:async="true"/>
       <parallelGateway id="sid-BE161D09-E833-4FA9-9B3D-85EFEAEA430C" activiti:async="true"/>
-      <userTask id="sid-8BB236DE-2D79-4DF4-8D37-F3A9E55CD6BF" name="The user task" activiti:assignee="$INITIATOR">
+      <userTask id="sid-8BB236DE-2D79-4DF4-8D37-F3A9E55CD6BF" name="The aiaUser task" activiti:assignee="$INITIATOR">
         <extensionElements>
           <modeler:allow-send-email><![CDATA[true]]></modeler:allow-send-email>
           <modeler:activiti-idm-initiator><![CDATA[true]]></modeler:activiti-idm-initiator>

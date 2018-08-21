@@ -13,7 +13,7 @@
       <!-- MySQL -->
       <props>
           <prop key="url">@jdbc.url@</prop>
-          <prop key="user">@jdbc.username@</prop>
+          <prop key="aiaUser">@jdbc.username@</prop>
           <prop key="password">@jdbc.password@</prop>
       </props>
     </property>

@@ -15,7 +15,7 @@
         </div>
     </div>
     
-    <div class="form-group clearfix" ng-if="assignmentOption.id == 'user'">
+    <div class="form-group clearfix" ng-if="assignmentOption.id == 'aiaUser'">
         <div class="col-xs-12">
             <div class="col-xs-3">
                 <label>{{'PROCESS-BUILDER.HUMAN-STEP.ASSIGNMENT.ASSIGNEE' | translate}}</label>
@@ -24,11 +24,11 @@
                 <div class="people-select">
                     <button class="selection" select-people-popover="assignment.assignee" popover-title="PROCESS-BUILDER.HUMAN-STEP.ASSIGN.TITLE" placement="bottom"
                             select-people-form-fields="assignmentFormFields" 
-                            on-people-selected="setAssignee(user, userField)"
+                            on-people-selected="setAssignee(aiaUser, userField)"
                             on-email-selected="assignmentObject.assignee = {email: email}">
-                        <i class="icon icon-user" ng-show="(assignmentObject.assignee && (assignmentObject.assignee.id || assignmentObject.assignee.email)) || assignmentObject.assigneeField"></i>
+                        <i class="icon icon-aiaUser" ng-show="(assignmentObject.assignee && (assignmentObject.assignee.id || assignmentObject.assignee.email)) || assignmentObject.assigneeField"></i>
                         <span ng-if="(!assignmentObject.assignee || !assignmentObject.assignee.id || !assignmentObject.assignee.email) && (!assignmentObject.assigneeField)">{{'PROCESS-BUILDER.HUMAN-STEP.ASSIGNMENT.SELECT-ASSIGNEE' | translate}}</span>
-                        <span ng-if="assignmentObject.assignee && assignmentObject.assignee.id" user-name="assignmentObject.assignee"></span>
+                        <span ng-if="assignmentObject.assignee && assignmentObject.assignee.id" aiaUser-name="assignmentObject.assignee"></span>
                         <span ng-if="assignmentObject.assigneeField">{{assignmentObject.assigneeField.name}}</span>
                         <span ng-if="assignmentObject.assigneeField" class="field-type"> - {{assignmentObject.assigneeField.id}}</span>
                         <i class="icon icon-caret-down"></i>
@@ -46,15 +46,15 @@
             <div class="col-xs-9">
                 <div class="clearfix selection narrow">
                     <ul class="simple-list" ng-show="assignmentObject.candidateUsers.length || assignmentObject.candidateUserFields.length">
-                        <li ng-repeat="user in assignmentObject.candidateUsers">
-                            <i class="icon icon-user"></i>
-                            <span user-name="user" />
+                        <li ng-repeat="aiaUser in assignmentObject.candidateUsers">
+                            <i class="icon icon-aiaUser"></i>
+                            <span aiaUser-name="aiaUser" />
                             <div class="actions">
-                                <a ng-click="removeCandidateUser(user)"><i class="icon icon-remove"></i></a>
+                                <a ng-click="removeCandidateUser(aiaUser)"><i class="icon icon-remove"></i></a>
                             </div>
                         </li>
                         <li ng-repeat="userField in assignmentObject.candidateUserFields">
-                            <i class="icon icon-user"></i>
+                            <i class="icon icon-aiaUser"></i>
                             <span>{{userField.name}}</span>
                             <span class="field-type"> - {{userField.id}}</span>
                             <div class="actions">
@@ -67,7 +67,7 @@
                                 popover-title="PROCESS-BUILDER.HUMAN-STEP.CANDIDATES.TITLE"
                                 placement="bottom-right"
                                 select-people-form-fields="assignmentFormFields" 
-                                on-people-selected="addCandidateUser(user, userField)"
+                                on-people-selected="addCandidateUser(aiaUser, userField)"
                                 on-email-selected="addCandidateUserByEmail(email)">
                             + {{'PROCESS-BUILDER.HUMAN-STEP.ASSIGNMENT.ADD-CANDIDATE' | translate}}
                         </button>
@@ -116,7 +116,7 @@
         </div>
     </div>
     
-    <div class="form-group clearfix" ng-if="assignmentOption.id == 'user' || assignmentOption.id == 'users' || assignmentOption.id == 'groups'">
+    <div class="form-group clearfix" ng-if="assignmentOption.id == 'aiaUser' || assignmentOption.id == 'users' || assignmentOption.id == 'groups'">
         <div class="col-xs-12">
             <div class="col-xs-12">
                 <label>

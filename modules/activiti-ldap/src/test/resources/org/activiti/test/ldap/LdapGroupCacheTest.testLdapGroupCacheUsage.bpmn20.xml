@@ -12,7 +12,7 @@
 		<userTask id="theTask1">
 			<potentialOwner>
 				<resourceAssignmentExpression>
-					<formalExpression>user(kermit), group(Sales)</formalExpression>
+					<formalExpression>aiaUser(kermit), group(Sales)</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
 		</userTask>
@@ -22,7 +22,7 @@
 		<userTask id="theTask2">
 			<potentialOwner>
 				<resourceAssignmentExpression>
-					<formalExpression>user(pepe), group(Sales)</formalExpression>
+					<formalExpression>aiaUser(pepe), group(Sales)</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
 		</userTask>
@@ -32,7 +32,7 @@
 		<userTask id="theTask3">
 			<potentialOwner>
 				<resourceAssignmentExpression>
-					<formalExpression>user(kermit), group(Sales)</formalExpression>
+					<formalExpression>aiaUser(kermit), group(Sales)</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
 		</userTask>
@@ -42,7 +42,7 @@
         <userTask id="theTask4">
             <potentialOwner>
                 <resourceAssignmentExpression>
-                    <formalExpression>user(fozzie), group(Sales)</formalExpression>
+                    <formalExpression>aiaUser(fozzie), group(Sales)</formalExpression>
                 </resourceAssignmentExpression>
             </potentialOwner>
         </userTask>

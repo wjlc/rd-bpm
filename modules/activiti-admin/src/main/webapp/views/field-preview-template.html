@@ -73,7 +73,7 @@
             <label class="control-label">{{field.name}}</label>
             <span class="marker" ng-if="field.required">*</span>
         </div>
-        
+
       <div ng-show="field.optionType != 'rest' && field.options && field.options.length> 0" class="radio" ng-repeat="option in field.options">
           <label>
               <input type="radio" name="optionsRadios" id="optionsRadios{{$index}}" value="option{{$index}}" ng-checked="field.value == option.name" disabled>{{option.name}}</input>
@@ -97,17 +97,17 @@
         <label class="control-label">{{field.name}}</label>
         <span class="marker" ng-if="field.required">*</span>
         <div class="input-group">
-      <span class="input-group-addon"><i class="icon icon-user-add"></i></span>
+      <span class="input-group-addon"><i class="icon icon-aiaUser-add"></i></span>
       <input type="text" class="form-control" placeholder="{{'FORM.FIELD-PREVIEW.SELECT-PERSON' | translate}}" value="{{field.placeholder}}" disabled>
     </div>
-    
+
     </div>
 
     <div ng-switch-when="functional-group" class="form-group">
         <label class="control-label">{{field.name}}</label>
         <span class="marker" ng-if="field.required">*</span>
         <div class="input-group">
-      <span class="input-group-addon"><i class="icon icon-user-add"></i></span>
+      <span class="input-group-addon"><i class="icon icon-aiaUser-add"></i></span>
       <input type="text" class="form-control" placeholder="{{'FORM.FIELD-PREVIEW.SELECT-GROUP' | translate}}" value="{{field.placeholder}}" disabled>
     </div>
     </div>

@@ -103,7 +103,7 @@
                                     select-people-popover
                                     popover-title="IDM.FUNCTIONAL-GROUP-MGMT.ADD-POPOVER-TITLE"
                                     placement="bottom"
-                                    on-people-selected="addGroupMember(user)"
+                                    on-people-selected="addGroupMember(aiaUser)"
                                     email-mode-disabled="true"
                                     tenant-id="common.selectedTenantId"
                                     type="'idm'"
@@ -113,7 +113,7 @@
                             </span>
                         </h3>
 
-                        <div class="input-group user-search-field">
+                        <div class="input-group aiaUser-search-field">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-search"></i>
                         </span>
@@ -136,11 +136,11 @@
                                 <th width="30%%">{{'IDM.USER-MGMT.NAME' | translate}}</th>
                                 <th width="10%"></th>
                             </tr>
-                            <tr ng-repeat="user in model.users.data">
-                                <td>{{user.id}}</td>
-                                <td>{{user.email}}</td>
-                                <td>{{user.firstName}} {{user.lastName}}</td>
-                                <td align="center" ng-click="showRemoveMemberModal(user)"><i class="glyphicon glyphicon-trash" ></i></td>
+                            <tr ng-repeat="aiaUser in model.users.data">
+                                <td>{{aiaUser.id}}</td>
+                                <td>{{aiaUser.email}}</td>
+                                <td>{{aiaUser.firstName}} {{aiaUser.lastName}}</td>
+                                <td align="center" ng-click="showRemoveMemberModal(aiaUser)"><i class="glyphicon glyphicon-trash" ></i></td>
                             </tr>
                         </table>
 

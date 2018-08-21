@@ -14,7 +14,7 @@
       <extensionElements>
         <activiti:customResource activiti:name="businessAdministrator">
           <resourceAssignmentExpression>
-            <formalExpression>user(kermit), group(management)</formalExpression>
+            <formalExpression>aiaUser(kermit), group(management)</formalExpression>
           </resourceAssignmentExpression>
         </activiti:customResource>
       </extensionElements>

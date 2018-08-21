@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="activiti.qa.upgrade" default="upgrade">
 	
-  <property file="${user.home}/.activiti/build.properties" />
+  <property file="${aiaUser.home}/.activiti/build.properties" />
   <property name="activiti.version" value="5.16" />
   <property name="database" value="h2" />
   <property name="activiti.old.version" value="5.0" />
-  <property name="downloads.dir" value="${user.home}/.activiti/downloads" />
+  <property name="downloads.dir" value="${aiaUser.home}/.activiti/downloads" />
   <property name="download.old.distro.url" value="http://activiti.org/downloads/activiti-${activiti.old.version}.zip" />
 
 	<condition property="mvn.executable" value="mvn.bat" else="mvn">
@@ -41,7 +41,7 @@
       <arg line="-PexportCurrentDbSchema clean install" />
     </exec>
     <mkdir dir="target/activiti-${activiti.old.version}/libs" />
-    <copy file="${user.home}/.activiti/upgrade/build.${database}.properties" todir="target" overwrite="true" />
+    <copy file="${aiaUser.home}/.activiti/upgrade/build.${database}.properties" todir="target" overwrite="true" />
     <exec executable="${mvn.executable}">
       <arg line="dependency:copy-dependencies -Dactiviti.upgrade.version=${activiti.old.version} -Ddatabase=${database} -DoutputDirectory=target/activiti-${activiti.old.version}/libs" />
     </exec>
@@ -60,7 +60,7 @@
 		                              install.old.distro,
 		                              build.engine.module,
 		                              clean.db">
-    <copy file="${user.home}/.activiti/upgrade/build.${database}.properties" todir="target/activiti-${activiti.old.version}/setup" overwrite="true" />
+    <copy file="${aiaUser.home}/.activiti/upgrade/build.${database}.properties" todir="target/activiti-${activiti.old.version}/setup" overwrite="true" />
 		<antcall target="internal.h2.start" />
     <echo message="####################################" />
     <echo message="### CREATING ACTIVITI ${activiti.old.version} TABLES ###" />
@@ -96,7 +96,7 @@
     </exec>
     <echo message="updating activiti cfg fir the tests before migration" />
     <copy file="activiti.cfg.xml" todir="target/activiti-${activiti.old.version}-upgrade-before-classes" overwrite="true">
-      <filterset filtersfile="${user.home}/.activiti/upgrade/build.${database}.properties" />
+      <filterset filtersfile="${aiaUser.home}/.activiti/upgrade/build.${database}.properties" />
     </copy>
     <mkdir dir="target/test-results-before" />
 		<junit>
@@ -157,7 +157,7 @@
     <echo message="#############################" />
   	<mkdir dir="target/activiti-${activiti.old.version}" />
     <unzip src="${downloads.dir}/activiti-${activiti.old.version}.zip" dest="target" />
-  	<copy file="${user.home}/.activiti/upgrade/build.${database}.properties" todir="target/activiti-${activiti.old.version}/setup" overwrite="true" />
+  	<copy file="${aiaUser.home}/.activiti/upgrade/build.${database}.properties" todir="target/activiti-${activiti.old.version}/setup" overwrite="true" />
     <ant antfile="target/activiti-${activiti.old.version}/setup/build.xml" target="inflate.examples" inheritall="false" />
     <exec executable="${mvn.executable}">
       <arg line="dependency:copy-dependencies -X -Dactiviti.upgrade.version=${activiti.old.version}-ALWAYS-SNAPSHOT -DincludeGroupIds=com.oracle.jdbc -DoutputDirectory=target/activiti-${activiti.old.version}/workspace/activiti-engine-examples/libs-test" />
@@ -185,7 +185,7 @@
     <echo message="#########################" />
     <echo message="### CLEANING MYSQL DB ###" />
     <echo message="#########################" />
-	  <property file="${user.home}/.activiti/upgrade/build.${database}.properties" />
+	  <property file="${aiaUser.home}/.activiti/upgrade/build.${database}.properties" />
 		<echo message="cleaning db ${jdbc.url}" />
 	  <sql driver="${jdbc.driver}" password="${jdbc.password}" url="${jdbc.url}" userid="${jdbc.username}">
       <classpath>

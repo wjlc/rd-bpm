@@ -2,7 +2,7 @@
 
 <project name="activiti.qa">
   	
-  <property file="${user.home}/.activiti/build.properties" />
+  <property file="${aiaUser.home}/.activiti/build.properties" />
   <property file="../distro/src/setup/build.properties" />
   <property name="activiti.version" value="6.0.0" />
   <property name="activiti.home" value="../distro/target/activiti-${activiti.version}" /> 
@@ -10,7 +10,7 @@
   <property name="windows.browser" value="C:/Program Files/Mozilla Firefox/firefox.exe" />
   <property name="linux.browser" value="firefox" />
   <property name="tomcat.home" value="${activiti.home}/apps/apache-tomcat-${tomcat.version}" />
-  <property name="downloads.dir" value="${user.home}/.activiti/downloads" />
+  <property name="downloads.dir" value="${aiaUser.home}/.activiti/downloads" />
   
   <condition property="mvn.executable" value="mvn.bat" else="mvn">
      <os family="windows"/>
@@ -81,12 +81,12 @@
   
   <target name="webapp.redeploy">
     <fail message="To use this target, set property webapp.redeploy.module to the chosen module" unless="webapp.redeploy.module"/>
-    <available file="${user.home}/.activiti/tomcat-users.xml" property="tomcat.users.available" />
-  	<fail message="To use this target, a tomcat-users.xml must be in your user home ${user.home}/.activiti with following content:&#10;
+    <available file="${aiaUser.home}/.activiti/tomcat-users.xml" property="tomcat.users.available" />
+  	<fail message="To use this target, a tomcat-users.xml must be in your aiaUser home ${aiaUser.home}/.activiti with following content:&#10;
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &#10;
 &lt;tomcat-users&gt; &#10;
  	&lt;role rolename=&quot;manager&quot;/&gt; &#10;
- 	&lt;user username=&quot;activiti&quot; password=&quot;activiti&quot; roles=&quot;manager&quot;/&gt; &#10;
+ 	&lt;aiaUser username=&quot;activiti&quot; password=&quot;activiti&quot; roles=&quot;manager&quot;/&gt; &#10;
 &lt;/tomcat-users&gt; &#10;
 Then run test.demo.setup to make it get placed inside your tomcat server." unless="tomcat.users.available"/>
     <exec executable="${mvn.executable}" dir="../modules/activiti-webapp">

@@ -16,7 +16,7 @@
 		  </documentation>
 		  <potentialOwner>
 		    <resourceAssignmentExpression>
-		      <formalExpression>user(gonzo), user(kermit)</formalExpression>
+		      <formalExpression>aiaUser(gonzo), aiaUser(kermit)</formalExpression>
 		    </resourceAssignmentExpression>
 		  </potentialOwner>
 		</userTask>

@@ -30,7 +30,7 @@
     <body ng-app="activitiAdminApp">
         <div class="navbar navbar-fixed-top navbar-inverse" role="navigation" ng-show="serverLoaded || !authenticated" ng-cloak>
             <div class="container">
-                <!-- Profile/user -->
+                <!-- Profile/aiaUser -->
                 <div ng-show="authenticated" class="btn-group btn-group-sm pull-right">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         {{account.login}}
@@ -70,7 +70,7 @@
 		</div>
 
         <div ng-view="" ng-show="serverLoaded || !authenticated" ng-cloak></div>
-        <script type="text/ng-template" id="userItemTemplate.html"><a typeahead-scroll-item="$parent.$index"><span class="glyphicon glyphicon-user"></span><span class="user-label" bind-html-unsafe="match.label | typeaheadHighlight:query"></span></a></script>
+        <script type="text/ng-template" id="userItemTemplate.html"><a typeahead-scroll-item="$parent.$index"><span class="glyphicon glyphicon-aiaUser"></span><span class="aiaUser-label" bind-html-unsafe="match.label | typeaheadHighlight:query"></span></a></script>
 
         <!-- build:js scripts/scripts.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>

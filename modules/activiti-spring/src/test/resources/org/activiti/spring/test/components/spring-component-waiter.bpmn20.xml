@@ -19,7 +19,7 @@
 
         <sequenceFlow id="f3" sourceRef="n3" targetRef="n4"/>
 
-        <userTask id="n4" name="user"/>
+        <userTask id="n4" name="aiaUser"/>
 
         <sequenceFlow id="f4" sourceRef="n4" targetRef="n5"/>
 
@@ -27,7 +27,7 @@
 
         <sequenceFlow id="f5" sourceRef="n5" targetRef="n6"/>
 
-        <userTask id="n6" name="user"/>
+        <userTask id="n6" name="aiaUser"/>
 
         <sequenceFlow id="f6" sourceRef="n6" targetRef="n7"/>
 

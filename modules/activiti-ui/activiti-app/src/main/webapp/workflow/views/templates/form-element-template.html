@@ -67,12 +67,12 @@
         <span class="marker" ng-if="field.required">*</span>
         <div id="{{activitiFieldIdPrefix + field.id}}" class="people-select">
             <ul class="simple-list">
-                <li class="action" select-people-popover popover-title="{{field.name}}" placement="bottom-left" on-people-selected="fieldPersonSelected(user, field)"
+                <li class="action" select-people-popover popover-title="{{field.name}}" placement="bottom-left" on-people-selected="fieldPersonSelected(aiaUser, field)"
                     on-email-selected="fieldPersonEmailSelected(email, field)" restrict-with-group="field.params.restrictWithGroup" ng-required="field.required">
-                    <div ng-if="field.value && field.value.id" user-picture="field.value"></div>
+                    <div ng-if="field.value && field.value.id" aiaUser-picture="field.value"></div>
                     <span ng-if="!field.value && !field.placeholder" translate="FORM.MESSAGE.SELECT-PERSON"></span>
                     <span ng-if="!field.value && field.placeholder" translate="{{field.placeholder}}"></span>
-                    <div ng-if="field.value && field.value.id" user-link="field.value"></div>
+                    <div ng-if="field.value && field.value.id" aiaUser-link="field.value"></div>
                     <span ng-if="field.value && !field.value.id">{{field.value}}</span>
                     <div class="actions" ng-if="field.value">
                         <a ng-click="fieldPersonRemoved(field.value, field)"><i class="icon icon-remove"></i></a>
@@ -135,8 +135,8 @@
         <span ng-if="!field.value" translate="FORM.MESSAGE.EMPTY"></span>
         <ul class="simple-list" ng-if="field.value">
             <li>
-                <div user-picture="field.value"></div>
-                <div user-link="field.value"></div>
+                <div aiaUser-picture="field.value"></div>
+                <div aiaUser-link="field.value"></div>
             </li>
         </ul>
     </div>

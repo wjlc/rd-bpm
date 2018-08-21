@@ -5,7 +5,7 @@
       <extensionElements>
         <activiti:formProperty id="taskType" name="Task Type" type="enum" variable="taskType" required="true">
           <activiti:value id="java" name="Service Task"></activiti:value>
-          <activiti:value id="user" name="User Task"></activiti:value>
+          <activiti:value id="aiaUser" name="User Task"></activiti:value>
         </activiti:formProperty>
       </extensionElements>
     </startEvent>
@@ -21,7 +21,7 @@
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${taskType=="java"}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow6" sourceRef="exclusivegateway1" targetRef="usertask1">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${taskType=="user"}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${taskType=="aiaUser"}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow7" sourceRef="servicetask1" targetRef="endevent1"></sequenceFlow>
     <sequenceFlow id="flow10" sourceRef="usertask1" targetRef="endevent1"></sequenceFlow>

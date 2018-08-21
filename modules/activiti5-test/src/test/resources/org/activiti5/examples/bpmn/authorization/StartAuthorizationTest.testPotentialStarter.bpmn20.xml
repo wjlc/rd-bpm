@@ -7,7 +7,7 @@
 		<extensionElements>
 			<activiti:potentialStarter>
 				<resourceAssignmentExpression>
-					<formalExpression>group2, group(group3), user(user3)</formalExpression>
+					<formalExpression>group2, group(group3), aiaUser(user3)</formalExpression>
 				</resourceAssignmentExpression>
 			</activiti:potentialStarter>
 		</extensionElements>

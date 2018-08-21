@@ -218,7 +218,7 @@
 										<copy file="${basedir}/../../qa/db/activiti.dmn.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.activiti6.${databasedmn}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.activiti6.${databasedmn}.properties" />
 										</copy>
 									</tasks>
 								</configuration>
@@ -270,7 +270,7 @@
 										<copy file="${basedir}/../../qa/db/schema/activiti.dmn.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.activiti6.${databasewithschemadmn}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.activiti6.${databasewithschemadmn}.properties" />
 										</copy>
 									</tasks>
 								</configuration>

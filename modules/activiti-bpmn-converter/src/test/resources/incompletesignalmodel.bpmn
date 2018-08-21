@@ -4,7 +4,7 @@
   <process id="simpleProcess" name="Simple process" isExecutable="true">
     <startEvent id="start" />
     <sequenceFlow sourceRef="start" targetRef="task" />
-    <userTask id="task" name="user task 1" activiti:assignee="kermit" />
+    <userTask id="task" name="aiaUser task 1" activiti:assignee="kermit" />
     <sequenceFlow sourceRef="task" targetRef="end" />
     <endEvent id="end"/>
   </process>

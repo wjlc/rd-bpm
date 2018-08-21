@@ -9,7 +9,7 @@
     </startEvent>
     <userTask id="Review_Tweet_3" name="Review Tweet" activiti:assignee="kermit">
       <extensionElements>
-        <activiti:formProperty id="initiator" name="user" type="string" readable="true" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="initiator" name="aiaUser" type="string" readable="true" writable="false"></activiti:formProperty>
         <activiti:formProperty id="email" name="email" type="string" readable="true" writable="false"></activiti:formProperty>
         <activiti:formProperty id="content" name="content" type="string" readable="true" writable="false"></activiti:formProperty>
         <activiti:formProperty id="approved" name="approved" type="boolean" readable="true" writable="true"></activiti:formProperty>

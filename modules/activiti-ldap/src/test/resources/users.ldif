@@ -30,7 +30,7 @@ dn: cn=User,ou=groups,o=activiti
 objectClass: groupOfUniqueNames
 objectClass: top
 cn: User
-uid : user
+uid : aiaUser
 uniqueMember: uid=kermit, ou=users,o=activiti
 uniqueMember: uid=pepe, ou=users,o=activiti
 uniqueMember: uid=gonzo, ou=users,o=activiti

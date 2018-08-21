@@ -29,7 +29,7 @@
 'glyphicon-heart', 
 'glyphicon-star', 
 'glyphicon-star-empty', 
-'glyphicon-user', 
+'glyphicon-aiaUser',
 'glyphicon-film', 
 'glyphicon-th-large', 
 'glyphicon-th', 

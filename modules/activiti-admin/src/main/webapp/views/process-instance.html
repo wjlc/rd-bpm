@@ -33,7 +33,7 @@
 						<tr class="property">
 							<td class="property-name" translate="PROCESS-INSTANCE.ACTIVITY-ID-STARTED"></td>
 							<td>{{process.startActivityId | empty}}</td>
-							<td class="property-name"><span class="glyphicon glyphicon-user"></span> {{'PROCESS-INSTANCE.STARTED-BY' | translate}}</td>
+							<td class="property-name"><span class="glyphicon glyphicon-aiaUser"></span> {{'PROCESS-INSTANCE.STARTED-BY' | translate}}</td>
 							<td>{{process.startUserId | empty}}</td>
 						</tr>
 						<tr class="property">
@@ -104,7 +104,7 @@
 
 		        	<div class="grid-wrapper grid-wrapper-compact" ng-if="tasks && tabData.activeTab == tabData.tabs[0].id">
 						<div class="grid-message" ng-if="tasks.size > 0">
-	                        <span>{{'PROCESS-INSTANCE.TASKS-SIZE' | translate:tasks}}</span> 
+	                        <span>{{'PROCESS-INSTANCE.TASKS-SIZE' | translate:tasks}}</span>
 	                        <span>
 	                        	<a ng-click="showAllTasks()" class="action"><i class="glyphicon glyphicon-zoom-in"></i> {{'PROCESS-INSTANCE.ACTION.SHOW-ALL-TASKS' | translate}}</a>
 							</span>
@@ -150,7 +150,7 @@
 	                    </div>
 						<div ng-grid="gridJobs" class="gridStyle" ng-if="jobs" ng-show="jobs.size > 0"></div>
 					</div>
-					
+
 					<div class="grid-wrapper grid-wrapper-compact" ng-if="decisionTables && tabData.activeTab == tabData.tabs[4].id">
 						<div class="grid-message" ng-if="decisionTables.size > 0">
 	                        <span>{{'PROCESS-INSTANCE.DECISION-TABLES-SIZE' | translate:decisionTables}}</span>
@@ -160,7 +160,7 @@
 	                    </div>
 						<div ng-grid="gridDecisionTables" class="gridStyle" ng-if="decisionTables" ng-show="decisionTables.size > 0"></div>
 					</div>
-					
+
 					<div class="grid-wrapper grid-wrapper-compact" ng-if="forms && tabData.activeTab == tabData.tabs[5].id">
 						<div class="grid-message" ng-if="forms.size > 0">
 	                        <span>{{'PROCESS-INSTANCE.FORMS-SIZE' | translate:forms}}</span>

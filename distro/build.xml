@@ -2,11 +2,12 @@
 
 <project name="activiti.distro" default="distro">
 
-	<property file="${user.home}/.activiti/build.properties" />
+	<!--<property file="${user.home}/.activiti/build.properties" />-->
 
 	<property name="activiti.version" value="6.0.0" />
 	<property name="target.distro.root" value="target/zip/activiti-${activiti.version}" />
 	<property name="activiti.website" value="../../activiti-website" />
+	<property name="nodocs" value="true" />
 
 	<condition property="mvn.executable" value="mvn.bat" else="mvn">
 		<os family="windows" />
@@ -49,11 +50,11 @@
 		</exec>
 		<exec executable="${mvn.executable}" dir="../modules/activiti-ui/activiti-app" failonerror="true">
 			<env key="MAVEN_OPTS" value="-Xmx1024m -Xms512m -XX:MaxPermSize=256M" />
-			<arg line="-Pdistro${usingJdk8OrHigher} -DskipTests clean install" />
+			<arg line="-Pdistro${nodocs.profile}${usingJdk8OrHigher} clean install -DskipTests" />
 		</exec>
 		<exec executable="${mvn.executable}" dir="../modules/activiti-admin" failonerror="true">
 			<env key="MAVEN_OPTS" value="-Xmx1024m -Xms512m -XX:MaxPermSize=256M" />
-			<arg line="-Pdistro${usingJdk8OrHigher} -DskipTests clean install" />
+			<arg line="-Pdistro${nodocs.profile}${usingJdk8OrHigher} clean install -DskipTests" />
 		</exec>
 	</target>
 
@@ -145,6 +146,9 @@
 			</fileset>
 			<fileset dir="../modules/activiti-ldap/target">
 				<include name="activiti-ldap*.jar" />
+			</fileset>
+			<fileset dir="../modules/activiti-custom/target">
+				<include name="activiti-custom*.jar" />
 			</fileset>
 			<fileset dir="../modules/activiti-common-rest/target">
 				<include name="activiti-common-rest-*.jar" />

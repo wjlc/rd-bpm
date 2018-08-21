@@ -18,9 +18,9 @@
   <spring:beans>
       <ss:authentication-manager alias="authenticationManager">
           <ss:authentication-provider>
-              <ss:user-service id="userService">
-                  <ss:user name="test" password="password" authorities="ROLE_ADMIN" />
-              </ss:user-service>
+              <ss:aiaUser-service id="userService">
+                  <ss:aiaUser name="test" password="password" authorities="ROLE_ADMIN" />
+              </ss:aiaUser-service>
           </ss:authentication-provider>
       </ss:authentication-manager>
   </spring:beans>

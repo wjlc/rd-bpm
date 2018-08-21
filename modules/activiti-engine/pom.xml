@@ -375,7 +375,7 @@
 										<copy file="${basedir}/../../qa/db/activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.activiti6.${database}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.activiti6.${database}.properties" />
 										</copy>
 									</tasks>
 								</configuration>
@@ -428,7 +428,7 @@
 										<copy file="${basedir}/../../qa/db/schema/activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.activiti6.${databasewithschema}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.activiti6.${databasewithschema}.properties" />
 										</copy>
 									</tasks>
 								</configuration>
@@ -480,7 +480,7 @@
 										<copy file="${basedir}/../../qa/db/mssql/activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.activiti6.${databasemssql}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.activiti6.${databasemssql}.properties" />
 										</copy>
 									</tasks>
 								</configuration>
@@ -516,7 +516,7 @@
 											file="${basedir}/../../qa/spring/${database}/activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.${database}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.${database}.properties" />
 										</copy>
 									</tasks>
 								</configuration>
@@ -586,7 +586,7 @@
 										<copy file="${basedir}/../../qa/jta/${database}/activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.${database}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.${database}.properties" />
 										</copy>
 									</tasks>
 								</configuration>
@@ -700,7 +700,7 @@
 										<copy file="${basedir}/../../qa/db/historyfull.activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.${database}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.${database}.properties" />
 										</copy>
 										<rename src="target/test-classes/historyfull.activiti.cfg.xml"
 											dest="target/test-classes/activiti.cfg.xml" />
@@ -767,7 +767,7 @@
 											file="${basedir}/../../qa/db/historyfull-with-schema.activiti.cfg.xml"
 											todir="target/test-classes" overwrite="true">
 											<filterset
-												filtersfile="${user.home}/.activiti/jdbc/build.${databasewithschema}.properties" />
+												filtersfile="${aiaUser.home}/.activiti/jdbc/build.${databasewithschema}.properties" />
 										</copy>
 										<rename
 											src="target/test-classes/historyfull-with-schema.activiti.cfg.xml"

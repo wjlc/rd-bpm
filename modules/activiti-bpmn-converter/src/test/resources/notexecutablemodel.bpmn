@@ -13,7 +13,7 @@
     <sequenceFlow id="sid-AFFB5C18-4C31-469B-919B-A08BE34542EA" sourceRef="sid-AFE2BB40-CF6F-4947-9DF9-2F1F80E34C43" targetRef="sid-B074A0DD-934A-4053-A537-20ADF0781023"></sequenceFlow>
     <endEvent id="sid-65043A85-6BAD-4616-AD1E-FF3FA8D64D4B"></endEvent>
     <sequenceFlow id="sid-104B63DD-B61E-4D47-B65F-95A1B77AB041" sourceRef="catchEvent" targetRef="sid-65043A85-6BAD-4616-AD1E-FF3FA8D64D4B"></sequenceFlow>
-    <userTask id="sid-AFE2BB40-CF6F-4947-9DF9-2F1F80E34C43" name="user task 1" activiti:assignee="kermit">
+    <userTask id="sid-AFE2BB40-CF6F-4947-9DF9-2F1F80E34C43" name="aiaUser task 1" activiti:assignee="kermit">
       <extensionElements>
         <activiti:formProperty id="test" name="Test" type="string"></activiti:formProperty>
         <activiti:formProperty id="test2" name="Test 2" type="boolean"></activiti:formProperty>

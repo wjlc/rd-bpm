@@ -3,5 +3,5 @@
   <role rolename="manager"/>
   <role rolename="admin"/>
   <role rolename="manager-script" />
-  <user username="admin" password="admin" roles="admin,manager,manager-script"/>
+  <aiaUser username="admin" password="admin" roles="admin,manager,manager-script"/>
 </tomcat-users>

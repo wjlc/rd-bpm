@@ -15,7 +15,7 @@
      <!-- This is for H2 -->
      <!--  <props>
           <prop key="URL">@jdbc.url@</prop>
-          <prop key="user">@jdbc.username@</prop>
+          <prop key="aiaUser">@jdbc.username@</prop>
           <prop key="password">@jdbc.password@</prop>
       </props> -->
       
@@ -23,7 +23,7 @@
       <props>
           <prop key="serverName">@jdbc.servername@</prop>
           <prop key="databaseName">@jdbc.databasename@</prop>
-          <prop key="user">@jdbc.username@</prop>
+          <prop key="aiaUser">@jdbc.username@</prop>
           <prop key="password">@jdbc.password@</prop>
       </props>
         

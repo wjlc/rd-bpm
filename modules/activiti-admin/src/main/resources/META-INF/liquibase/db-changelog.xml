@@ -181,7 +181,7 @@
         <!-- Adding new CLUSTER_MGMT role -->
         <loadData encoding="UTF-8" file="META-INF/liquibase/authorities_1.1.csv"  separator=";" tableName="AUTHORITY" />
 
-        <!-- Allow to link user with cluster config -->
+        <!-- Allow to link aiaUser with cluster config -->
         <addColumn tableName="CLUSTER_CONFIG">
             <column name="user_id" type="varchar(50)" />
         </addColumn>
@@ -217,22 +217,22 @@
                                  referencedTableName="CLUSTER_CONFIG"/>
 
     </changeSet>
-    
+
     <changeSet id="6" author="activiti">
-    
-        <!-- Allow to link user with cluster config -->
+
+        <!-- Allow to link aiaUser with cluster config -->
         <addColumn tableName="SERVER_CONFIG">
             <column name="tenant_id" type="varchar(50)" />
         </addColumn>
-    
+
     </changeSet>
-    
+
     <changeSet id="7" author="activiti">
-    
+
         <addColumn tableName="CLUSTER_CONFIG">
             <column name="created_by" type="varchar(50)" />
         </addColumn>
-    
+
     </changeSet>
-    
+
 </databaseChangeLog>

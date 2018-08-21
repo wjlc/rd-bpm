@@ -78,11 +78,11 @@
                             <th width="30%">{{'IDM.USER-MGMT.EMAIL' | translate}}</th>
                             <th width="30%">{{'IDM.USER-MGMT.NAME' | translate}}</th>
                         </tr>
-                        <tr ng-repeat="user in model.users.data" ng-click="toggleUserSelection(user)" ng-class="{'selected': model.selectedUsers[user.id]}">
-                            <td class="control"><input type="checkbox" ng-checked="model.selectedUsers[user.id]"></td>
-                            <td>{{user.id}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.fullName}}</td>
+                        <tr ng-repeat="aiaUser in model.users.data" ng-click="toggleUserSelection(aiaUser)" ng-class="{'selected': model.selectedUsers[aiaUser.id]}">
+                            <td class="control"><input type="checkbox" ng-checked="model.selectedUsers[aiaUser.id]"></td>
+                            <td>{{aiaUser.id}}</td>
+                            <td>{{aiaUser.email}}</td>
+                            <td>{{aiaUser.fullName}}</td>
                         </tr>
                     </table>
                 </div>

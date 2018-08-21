@@ -11,9 +11,9 @@
                 <a style="font-size: 15px;"
                       select-people-popover
                       close-on-select="true"
-                      exclude-user-id="account.id"
-                      exclude-user-ids="currentlySharedUserIds"
-                      on-people-selected="addRealUser(user)"
+                      exclude-aiaUser-id="account.id"
+                      exclude-aiaUser-ids="currentlySharedUserIds"
+                      on-people-selected="addRealUser(aiaUser)"
                       on-email-selected="addEmailUser(email)"
                       ignore-container="true"
                       placement="bottom-left">
@@ -48,8 +48,8 @@
                                 <tbody>
                                     <tr class="sharing-entry" ng-repeat="info in popup.shareInfo.data">
                                         <td style="width:70%">
-                                            <i class="glyphicon glyphicon-user" ng-if="info.person"></i>
-                                            <span user-name="info.person" ng-if="info.person"></span>
+                                            <i class="glyphicon glyphicon-aiaUser" ng-if="info.person"></i>
+                                            <span aiaUser-name="info.person" ng-if="info.person"></span>
                                         </td>
                                         <td style="width:15%"  class="text-center">
                                             <i class="glyphicon glyphicon-eye-open"

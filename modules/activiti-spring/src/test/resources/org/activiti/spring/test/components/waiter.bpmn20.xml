@@ -9,7 +9,7 @@
 
         <sequenceFlow id="flow1" sourceRef="start" targetRef="print"/>
 
-        <userTask id="print" name="user"/>
+        <userTask id="print" name="aiaUser"/>
 
         <sequenceFlow id="flow2" sourceRef="print" targetRef="end"/>
 
